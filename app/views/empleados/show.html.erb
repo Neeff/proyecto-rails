@@ -1,0 +1,24 @@
+
+
+<p>
+  <strong>Nombre:</strong>
+  <%= @empleado.nombre %>
+</p>
+
+<p>
+  <strong>Apellido:</strong>
+  <%= @empleado.apellido %>
+</p>
+
+<p>
+  <strong>Cargo:</strong>
+  <%= @empleado.cargo %>
+</p>
+
+<p>
+  <strong>Sueldo:</strong>
+  <%= @empleado.sueldo %>
+</p>
+
+<%= link_to 'Editar', edit_empleado_path(@empleado) %> |
+<%= link_to 'Volver', empleados_path %>

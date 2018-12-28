@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salidas</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salidas.each do |salida| %>
+      <tr>
+        <td><%= salida.fecha %></td>
+        <td><%= link_to 'Mostrar', salida %></td>
+        <td><%= link_to 'Editar', edit_salida_path(salida) %></td>
+        <td><%= link_to 'Eliminar', salida, method: :delete, data: { confirm: 'Estas Seguro ' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Salida', new_salida_path , :class => 'btn btn-success' %>

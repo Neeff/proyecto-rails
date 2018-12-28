@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Viajes</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+<% if user_signed_in? %>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Viajes Interestelar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <li class="active"><%= link_to "Inicio", root_path %></li>
+      <li>||</li>
+    <ul class="nav navbar-nav navbar-right">
+              <li class="active cart"><%= render 'layouts/cart' %></li>
+            </ul>
+    </div>
+  </div>
+</nav>
+  <div class="alert alert-success"> Bienvenido <strong><%= current_user.email.split('@')[0].capitalize %></strong>.
+  <%= link_to 'Editar Perfil De Usuario', edit_user_registration_path, :class => 'btn btn-success' %>
+  <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'btn btn-warning'  %>
+</div>
+<% else %>
+<nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">
+  <a class="navbar-brand" href="#">Interestelar Viajes</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"><%= link_to "Crear Cuenta", new_user_registration_path, :class => 'btn btn-outline-primary'  %><span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item pull-xs-right">
+        <a class="nav-link" href="#"><%= link_to "Iniciar Sesion", new_user_session_path, :class => 'btn btn-outline-primary'  %></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><%= link_to "Nosotros",nosotros_nosotros_path  , :class => 'btn btn-outline-primary'  %></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+
+
+
+<% end %>
+
+
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+      <%= yield %>

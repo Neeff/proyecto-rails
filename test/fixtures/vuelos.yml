@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  origen: MyString
+  h_llegada: MyString
+  h_salida: MyString
+  destino: MyString
+
+two:
+  origen: MyString
+  h_llegada: MyString
+  h_salida: MyString
+  destino: MyString

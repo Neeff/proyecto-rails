@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Modelo:</strong>
+  <%= @nafe.modelo %>
+</p>
+
+<p>
+  <strong>Fabricante:</strong>
+  <%= @nafe.fabricante %>
+</p>
+
+<%= link_to 'Editar', edit_nafe_path(@nafe) %> |
+<%= link_to 'Volver', naves_path %>

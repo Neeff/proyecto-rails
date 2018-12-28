@@ -1,0 +1,29 @@
+
+
+<h1>Naves</h1>
+
+<table class="table table-dark"> 
+  <thead>
+    <tr>
+      <th>Modelo</th>
+      <th>Fabricante</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @naves.each do |nafe| %>
+      <tr>
+        <td><%= nafe.modelo %></td>
+        <td><%= nafe.fabricante %></td>
+        <td><%= link_to 'Mostrar', nafe, :class => 'btn btn-success'  %></td>
+        <td><%= link_to 'Editar', edit_nafe_path(nafe), :class => 'btn btn-warning'  %></td>
+        <td><%= link_to 'Eliminar', nafe, method: :delete, data: { confirm: 'Estas Seguro?' } , :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nueva Nave', new_nafe_path %>

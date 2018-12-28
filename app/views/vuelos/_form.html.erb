@@ -1,0 +1,37 @@
+<%= form_with(model: vuelo, local: true) do |form| %>
+  <% if vuelo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(vuelo.errors.count, "error") %> prohibited this vuelo from being saved:</h2>
+
+      <ul>
+      <% vuelo.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :origen %>
+    <%= form.text_field :origen %>
+  </div>
+
+  <div class="field">
+    <%= form.label :h_llegada %>
+    <%= form.text_field :h_llegada %>
+  </div>
+
+  <div class="field">
+    <%= form.label :h_salida %>
+    <%= form.text_field :h_salida %>
+  </div>
+
+  <div class="field">
+    <%= form.label :destino %>
+    <%= form.text_field :destino %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Crear | Modificar' ,:class =>'btn btn-success'%>
+  </div>
+<% end %>

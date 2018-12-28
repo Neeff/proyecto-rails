@@ -1,0 +1,33 @@
+
+
+<h1>Vuelos</h1>
+
+<table class="table table-dark">
+  <thead>
+    <tr>
+      <th>Origen</th>
+      <th>H llegada</th>
+      <th>H salida</th>
+      <th>Destino</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @vuelos.each do |vuelo| %>
+      <tr>
+        <td><%= vuelo.origen %></td>
+        <td><%= vuelo.h_llegada %></td>
+        <td><%= vuelo.h_salida %></td>
+        <td><%= vuelo.destino %></td>
+        <td><%= link_to 'Mostrar', vuelo , :class => 'btn btn-success' %></td>
+        <td><%= link_to 'Editar', edit_vuelo_path(vuelo), :class => 'btn btn-warning' %></td>
+        <td><%= link_to 'Eliminar', vuelo, method: :delete, data: { confirm: 'Estas Seguro?'  } , :class => 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Nuevo Vuelo', new_vuelo_path  , :class =>'btn btn-success'%>

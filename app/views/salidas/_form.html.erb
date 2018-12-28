@@ -1,0 +1,22 @@
+<%= form_with(model: salida, local: true) do |form| %>
+  <% if salida.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(salida.errors.count, "error") %> prohibited this salida from being saved:</h2>
+
+      <ul>
+      <% salida.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :fecha %>
+    <%= form.text_field :fecha %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit 'Crear | Modificar' , :class => 'btn btn-success' %>
+  </div>
+<% end %>
