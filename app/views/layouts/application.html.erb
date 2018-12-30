@@ -26,7 +26,7 @@
 </nav>
   <div class="alert alert-success"> Bienvenido <strong><%= current_user.email.split('@')[0].capitalize %></strong>.
   <%= link_to 'Editar Perfil De Usuario', edit_user_registration_path, :class => 'btn btn-success' %>
-  <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'btn btn-warning'  %>
+  <%= link_to "Cerrar Sesion", destroy_user_session_path, method: :delete, :class => 'btn btn-warning'  %> 
 </div>
 <% else %>
 <nav class="navbar navbar-expand-lg navbar-dark bg-info fixed-top">

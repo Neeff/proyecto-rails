@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_12_08_184151) do
+ActiveRecord::Schema.define(version: 2018_12_30_040933) do
 
   create_table "empleados", force: :cascade do |t|
     t.string "nombre"
@@ -19,6 +19,8 @@ ActiveRecord::Schema.define(version: 2018_12_08_184151) do
     t.float "sueldo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nave_id"
+    t.index ["nave_id"], name: "index_empleados_on_nave_id"
   end
 
   create_table "naves", force: :cascade do |t|
@@ -26,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_12_08_184151) do
     t.string "fabricante"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nave_id"
   end
 
   create_table "order_items", force: :cascade do |t|
@@ -57,6 +60,8 @@ ActiveRecord::Schema.define(version: 2018_12_08_184151) do
     t.string "image_content_type"
     t.integer "image_file_size"
     t.datetime "image_updated_at"
+    t.integer "nave_id"
+    t.index ["nave_id"], name: "index_products_on_nave_id"
   end
 
   create_table "salidas", force: :cascade do |t|
@@ -85,6 +90,8 @@ ActiveRecord::Schema.define(version: 2018_12_08_184151) do
     t.string "destino"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "nave_id"
+    t.index ["nave_id"], name: "index_vuelos_on_nave_id"
   end
 
 end
