@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'pay/pay'
   get 'products/new'
   get 'products/create'
   get 'products/edit'

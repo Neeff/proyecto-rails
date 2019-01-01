@@ -1,0 +1,55 @@
+
+
+
+<% if !@order_item.nil? && @order_item.errors.any? %>
+  <ul>
+    <% @order_item.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<% if @order_items.size>0 %>
+  <% @order_items.each do |item| %>
+  <div class="container">
+
+  <div class="card" style="width: 25rem;">
+  	<%= image_tag item.product.image.url(:medium), class: 'card-img.top' %>
+  <div class="card-body">
+    <h5 class="card-title"><h3><%= item.product.name%></h3></h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <div class="card-body">
+   <ul class="list-group list-group-flush">
+    <li class="list-group-item"><h5><span>Nave Asignada:<%= item.product.nave.modelo%></span></h5></li>
+    <li class="list-group-item"><h5><span>Fecha De Vuelo:<%= item.product.nave.salida.first.fecha%></span></h5></li>
+    <li class="list-group-item"><h5><span>Hora De Salida:<%= item.product.nave.vuelo.first.h_salida%></span></h5></li>
+    <li class="list-group-item"><h5><span>Hora De Llegada:<%= item.product.nave.vuelo.first.h_llegada%></span></h5></li>
+    <li class="list-group-item"><h5><span>Origen:<%= item.product.nave.vuelo.first.origen%></span></h5></li>
+    <li class="list-group-item"><h5><span>Destino:<%= item.product.nave.vuelo.first.destino%></span></h5></li>
+    <li class="list-group-item"><h5><span>Cantidad Pasajes:x<%= item.quantity%></span></h5></li>
+    <li class="list-group-item"><h5><span>Total Price: <%= item.total_price %></span></h5></li>
+
+  </ul>
+  </div>
+</div>
+</div>
+          <%= form_for(item, remote: true) do |f| %>
+            <%= f.hidden_field :product_id, value: item.product.id %>
+
+         
+            
+   <!--<h5><span>Tripulacion:<%= item.product.nave.empleado.first.nombre%></h5>-<%= item.product.nave.empleado.first.cargo%></span>
+    <span><h5><%= item.product.nave.empleado.second.nombre%></h5>-<%= item.product.nave.empleado.second.cargo%></span>
+    <span><h5><%= item.product.nave.empleado.third.nombre%></h5>-<%= item.product.nave.empleado.third.cargo%></span>
+            
+    <span><h5><%= item.product.nave.empleado.last.nombre%></h5>-<%= item.product.nave.empleado.last.cargo%></span> -->
+		  <% end %>
+        </div>
+          </div>
+        </div>
+      </div>
+  <% end %>
+<% else %>
+  
+<% end %>
